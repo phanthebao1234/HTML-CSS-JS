@@ -1,0 +1,45 @@
+{
+  "users": [
+    {
+      "fullname": "Phan Thế Bảo",
+      "email": "bao@gmail.com",
+      "password": "123456abcd",
+      "password_confirmation": "123456abcd",
+      "id": 1
+    }
+  ],
+  "products": [
+    {
+      "tag": "New",
+      "name": "Mỳ ý",
+      "image": "slide-img1.jpeg",
+      "price": "150000",
+      "amount": 321,
+      "id": 1
+    },
+    {
+      "tag": "Sale",
+      "name": "Thịt bò",
+      "image": "slide-img8.jpeg",
+      "price": "70000",
+      "amount": 1234,
+      "id": 2
+    },
+    {
+      "tag": "Sale",
+      "name": "Bánh ngọt",
+      "image": "slide-img4.jpg",
+      "price": "20000",
+      "amount": 578,
+      "id": 3
+    },
+    {
+      "tag": "Sale",
+      "name": "Kem",
+      "image": "slide-img2.jpg",
+      "price": "70000",
+      "amount": 29,
+      "id": 5
+    }
+  ]
+}

@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lý của hàng</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon-16x16.png">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Otomanopee+One&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://kit-pro.fontawesome.com/releases/v5.12.0/css/pro.min.css">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <div class="phandau" id="phandau">
+        <div class="container-fluid ">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="chao">
+                        Welcom you to PTB coder store!
+                    </div>
+                </div>
+                <div class="d-none d-lg-block col-lg-6">
+                    <div class="menu-top">
+                        <a href="#"><i class="fal fa-address-card"></i> Profile</a>
+                        |
+                        <a href="../login.html"><i class="far fa-sign-in-alt"></i> Login</a>
+                        |
+                        <a href="#" id="time"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="side-bar bg-light ">
+        <div class="container-fluid">
+            <div class="row align-items-center pt-3 pb3">
+                <div class="d-none d-lg-block col-lg-2">
+                    <div class="logo">
+                        ptb <span>coder</span>
+                    </div>
+                </div>
+                <div class="d-xl-none col-12">
+                    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                        <a class="navbar-brand" href="#">
+                            <div class="logo">
+                                ptb <span>coder</span>
+                            </div>
+                        </a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                            data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+                            aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                            <ul class="navbar-nav">
+                                <li class="nav-item active">
+                                    <a class="nav-link" href="./shop.html">Trang chủ</span></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="./profile.html">Tài khoản</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="./profile.html">Quản lý cửa hàng</a>
+                                </li>
+                                
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+                <div class="d-none d-lg-block col-lg-4">
+                    <div class="menu">
+                        <ul>
+                            <li><a href="./shop.html">Cửa hàng</a></li>
+                            <li><a href="./profile.html">Tài khoản</a></li>
+                            <li><a href="./manageshop.html">Quản lý cửa hàng</a></li>
+                            
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="timkiem">
+                        <input type="text" name="" placeholder="Search...">
+                        <button type="button"><i class="fas fa-search"></i></button>
+                    </div>
+                </div>
+                <div class="d-none d-lg-block col-lg-2">
+                    <div class="lienhe d-flex justify-content-end align-items-center">
+                        <div><img src="./images/call.png" alt="liên hệ"></div>
+                        <div>
+                            Call us:
+                            <br>
+                            <span>0357432472</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    <div class="sanpham">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="">
+                        <div class="tieude text-center">
+                            <h1>
+                                <div class="h1 font-weight-bold text-danger mb-5">Quản lý thông tin sản phẩm</div>
+                            </h1>
+                            
+                        </div>
+                        <!-- <div class="giohang">
+                            <i class="far fa-shopping-cart fa-2x pr-1"></i>
+                            <div class="d-inline-block">
+                                Tổng sản phẩm <span class="badge badge-pill badge-danger" style="visibility: hidden;"
+                                    id="tongsp">0</span><br>
+                                Tổng tiền <span id="tongtien"></span> VNĐ
+                            </div>
+                            <a href="#myModal" onclick="View();"
+                                class="btn btn-primary justify-content-center w-50 m-auto" data-toggle="modal">Xem Sản Phẩm</a>
+                        </div> -->
+                    </div>
+                    <div class="h2 font-weight-bold">Sản phẩm của bạn </div>
+                    <div class="row" id="listproduct">
+                        <div class="col-6 col-xl-3">
+                            <div class="noidungsanpham">
+                                <div class="tag">
+                                    New
+                                </div>
+                                <a href="#"><img src="./images/slide-img1.jpeg" alt="sanpham"></a>
+                                <h2>ghaphic corner</h2>
+                                <h1>
+                                    <a href="#">Món chay xào</a>
+                                </h1>
+                                <div class="star" style="font-size: 10px; padding-bottom: 8px;">
+                                    <p id="star">
+                                        <i class="fas fa-star" onclick="danhgia(1);"></i>
+                                        <i class="fas fa-star" onclick="danhgia(2);"></i>
+                                        <i class="fas fa-star" onclick="danhgia(3);"></i>
+                                        <i class="fas fa-star" onclick="danhgia(4);"></i>
+                                        <i class="fas fa-star" onclick="danhgia(5);"></i>
+                                    </p>
+                                </div>
+                                <h3>
+                                    <s>200.000</s>&nbsp;&nbsp;&nbsp;<span>149.000</span>
+                                </h3>
+                                <div class="cart d-flex justify-content-between align-items-center">
+                                    <button class="text-uppercase btn border-0 "
+                                        onclick="MuaHang('Món chay xào','slide-img1.jpeg','149.000');">add to
+                                        cart</button>
+                                    <a href="#"><i class="fas fa-heart"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-xl-3">
+                            <div class="noidungsanpham">
+                                <div class="tag">
+                                    New
+                                </div>
+                                <a href="#"><img src="./images/slide-img2.jpg" alt="sanpham"></a>
+                                <h2>ghaphic corner</h2>
+                                <h1>
+                                    <a href="#">Mỳ Ý</a>
+                                </h1>
+                                <div class="star2" style="font-size: 10px; padding-bottom: 8px;">
+                                    <p id="star2">
+                                        <i class="fas fa-star" onclick="danhgia2(1);"></i>
+                                        <i class="fas fa-star" onclick="danhgia2(2);"></i>
+                                        <i class="fas fa-star" onclick="danhgia2(3);"></i>
+                                        <i class="fas fa-star" onclick="danhgia2(4);"></i>
+                                        <i class="fas fa-star" onclick="danhgia2(5);"></i>
+                                    </p>
+                                </div>
+                                <h3>
+                                    <s>280.000</s>&nbsp;&nbsp;&nbsp;<span>190.000</span>
+                                </h3>
+                                <div class="cart d-flex justify-content-between align-items-center">
+                                    <button class="text-uppercase btn border-0"
+                                        onclick="MuaHang('Mỳ Ý','slide-img2.jpg','190.000')">add to cart</button>
+                                    <a href="#"><i class="fas fa-heart"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-xl-3">
+                            <div class="noidungsanpham">
+                                <div class="tag">
+                                    New
+                                </div>
+                                <a href="#"><img src="./images/slide-img3.jpg" alt="sanpham"></a>
+                                <h2>ghaphic corner</h2>
+                                <h1>
+                                    <a href="#">Thịt bò nướng</a>
+                                </h1>
+                                <div class="star3" style="font-size: 10px; padding-bottom: 8px;">
+                                    <p id="star3">
+                                        <i class="fas fa-star" onclick="danhgia3(1);"></i>
+                                        <i class="fas fa-star" onclick="danhgia3(2);"></i>
+                                        <i class="fas fa-star" onclick="danhgia3(3);"></i>
+                                        <i class="fas fa-star" onclick="danhgia3(4);"></i>
+                                        <i class="fas fa-star" onclick="danhgia3(5);"></i>
+                                    </p>
+                                </div>
+                                <h3>
+                                    <s>150.000</s>&nbsp;&nbsp;&nbsp;<span>90.000</span>
+                                </h3>
+                                <div class="cart d-flex justify-content-between align-items-center">
+                                    <button class="text-uppercase btn border-0"
+                                        onclick="MuaHang('Thịt bò nướng','slide-img3.jpg','90.000')">add to
+                                        cart</button>
+                                    <a href="#"><i class="fas fa-heart"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-xl-3">
+                            <div class="noidungsanpham">
+                                <div class="tag">
+                                    New
+                                </div>
+                                <a href="#"><img src="./images/slide-img4.jpg" alt="sanpham"></a>
+                                <h2>ghaphic corner</h2>
+                                <h1>
+                                    <a href="#">Phô mai</a>
+                                </h1>
+                                <div class="star4" style="font-size: 10px; padding-bottom: 8px;">
+                                    <p id="star4">
+                                        <i class="fas fa-star" onclick="danhgia4(1);"></i>
+                                        <i class="fas fa-star" onclick="danhgia4(2);"></i>
+                                        <i class="fas fa-star" onclick="danhgia4(3);"></i>
+                                        <i class="fas fa-star" onclick="danhgia4(4);"></i>
+                                        <i class="fas fa-star" onclick="danhgia4(5);"></i>
+                                    </p>
+                                </div>
+                                <h3>
+                                    <s>350.000</s>&nbsp;&nbsp;&nbsp;<span>250.000</span>
+                                </h3>
+                                <div class="cart d-flex justify-content-between align-items-center">
+                                    <button class="text-uppercase btn border-0"
+                                        onclick="MuaHang('Phô mai','slide-img4.jpg','250.000')">add to cart</button>
+                                    <a href="#"><i class="fas fa-heart"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-xl-3">
+                            <div class="noidungsanpham">
+                                <div class="tag">
+                                    New
+                                </div>
+                                <a href="#"><img src="./images/slide-img5.jpg" alt="sanpham"></a>
+                                <h2>ghaphic corner</h2>
+                                <h1>
+                                    <a href="#">Khoai tây chiên</a>
+                                </h1>
+                                <div class="star5" style="font-size: 10px; padding-bottom: 8px;">
+                                    <p id="star5">
+                                        <i class="fas fa-star" onclick="danhgia5(1);"></i>
+                                        <i class="fas fa-star" onclick="danhgia5(2);"></i>
+                                        <i class="fas fa-star" onclick="danhgia5(3);"></i>
+                                        <i class="fas fa-star" onclick="danhgia5(4);"></i>
+                                        <i class="fas fa-star" onclick="danhgia5(5);"></i>
+                                    </p>
+                                </div>
+                                <h3>
+                                    <s>245.000</s>&nbsp;&nbsp;&nbsp;<span>170.000</span>
+                                </h3>
+                                <div class="cart d-flex justify-content-between align-items-center">
+                                    <button class="text-uppercase btn border-0"
+                                        onclick="MuaHang('Khoai tây chiên','slide-img5.jpg','170.000')">add to
+                                        cart</button>
+                                    <a href="#"><i class="fas fa-heart"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-xl-3">
+                            <div class="noidungsanpham">
+                                <div class="tag">
+                                    New
+                                </div>
+                                <a href="#"><img src="./images/slide-img6.jpg" alt="sanpham"></a>
+                                <h2>ghaphic corner</h2>
+                                <h1>
+                                    <a href="#">Bánh kem socola</a>
+                                </h1>
+                                <div class="star6" style="font-size: 10px; padding-bottom: 8px;">
+                                    <p id="star6">
+                                        <i class="fas fa-star" onclick="danhgia6(1);"></i>
+                                        <i class="fas fa-star" onclick="danhgia6(2);"></i>
+                                        <i class="fas fa-star" onclick="danhgia6(3);"></i>
+                                        <i class="fas fa-star" onclick="danhgia6(4);"></i>
+                                        <i class="fas fa-star" onclick="danhgia6(5);"></i>
+                                    </p>
+                                </div>
+                                <h3>
+                                    <s>210.000</s>&nbsp;&nbsp;&nbsp;<span>159.000</span>
+                                </h3>
+                                <div class="cart d-flex justify-content-between align-items-center">
+                                    <button class="text-uppercase btn border-0"
+                                        onclick="MuaHang('Bánh kem socola','slide-img6.jpg','159.000')">add to
+                                        cart</button>
+                                    <a href="#"><i class="fas fa-heart"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-xl-3">
+                            <div class="noidungsanpham">
+                                <div class="tag">
+                                    New
+                                </div>
+                                <a href="#"><img src="./images/slide-img8.jpeg" alt="sanpham"></a>
+                                <h2>ghaphic corner</h2>
+                                <h1>
+                                    <a href="#">Các loại hạt</a>
+                                </h1>
+                                <div class="star7" style="font-size: 10px; padding-bottom: 8px;">
+                                    <p id="star7">
+                                        <i class="fas fa-star" onclick="danhgia7(1);"></i>
+                                        <i class="fas fa-star" onclick="danhgia7(2);"></i>
+                                        <i class="fas fa-star" onclick="danhgia7(3);"></i>
+                                        <i class="fas fa-star" onclick="danhgia7(4);"></i>
+                                        <i class="fas fa-star" onclick="danhgia7(5);"></i>
+                                    </p>
+                                </div>
+                                <h3>
+                                    <s>220.000</s>&nbsp;&nbsp;&nbsp;<span>179.000</span>
+                                </h3>
+                                <div class="cart d-flex justify-content-between align-items-center">
+                                    <button class="text-uppercase btn border-0 "
+                                        onclick="MuaHang('Các loại hạt','slide-img8.jpeg','179.000')">add to
+                                        cart</button>
+                                    <a href="#"><i class="fas fa-heart"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-xl-3">
+                            <div class="noidungsanpham">
+                                <div class="tag">
+                                    New
+                                </div>
+                                <a href="#"><img src="./images/slide-img9.jpg" alt="sanpham"></a>
+                                <h2>ghaphic corner</h2>
+                                <h1>
+                                    <a href="#">Kem trái cây</a>
+                                </h1>
+                                <div class="star8" style="font-size: 10px; padding-bottom: 8px;">
+                                    <p id="star8">
+                                        <i class="fas fa-star" onclick="danhgia8(1);"></i>
+                                        <i class="fas fa-star" onclick="danhgia8(2);"></i>
+                                        <i class="fas fa-star" onclick="danhgia8(3);"></i>
+                                        <i class="fas fa-star" onclick="danhgia8(4);"></i>
+                                        <i class="fas fa-star" onclick="danhgia8(5);"></i>
+                                    </p>
+                                </div>
+                                <h3>
+                                    <s>100.000</s>&nbsp;&nbsp;&nbsp;<span>80.000</span>
+                                </h3>
+                                <div class="cart d-flex justify-content-between align-items-center">
+                                    <button class="text-uppercase btn border-0"
+                                        onclick="MuaHang('Kem trái cây','slide-img9.jpg','80.000')">add to cart</button>
+                                    <a href="#"><i class="fas fa-heart"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-xl-3" id="listproducts">
+                            
+                        </div>
+                    </div>
+                    <div class="row mb-5">
+                        <div class="col-lg-12">
+                            <div class="border-top border-warning mt-5 mb-3"></div>
+                            <div class="h2 font-weight-bold">Đăng sản phẩm muốn bán</div>
+                            <div class="input-group mb-3" style="width:35%">
+                                <span class="input-group-text mr-3 bg-primary text-warning" id="basic-addon1">Tag</span>
+                                <input type="text" class="form-control" id="tag" placeholder="New / Sale">
+                            </div>
+                            <div class="input-group mb-3" style="width:35%">
+                                <span class="input-group-text mr-3 bg-primary  text-warning" id="basic-addon1">Tên sản phẩm</span>
+                                <input type="text" class="form-control" id="name" placeholder="tên sản phẩm">
+                            </div>
+                            <div class="input-group mb-3" style="width:35%">
+                                <span class="input-group-text mr-3 bg-primary text-warning" id="basic-addon1">Ảnh sản phẩm</span>
+                                <input type="text" class="form-control" id="img" placeholder="silde-img1.jpeg">
+                            </div>
+                            <div class="input-group mb-3" style="width:35%">
+                                <span class="input-group-text mr-3 bg-primary text-warning">Giá sản phẩm</span>
+                                <input type="text" class="form-control" id="price" aria-label="Amount (to the nearest dollar)">
+                                <span class="input-group-text">₫</span>
+                            </div>
+                            <button class="btn btn-primary" id="add" type="submit">Thêm</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            
+        </div>
+
+    </div>
+    
+    <div class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="item">
+                        <div class="logo">
+                            ptb <span>coder</span>
+                        </div>
+                        <p>
+                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusantium laboriosam eos porro
+                            sint libero.
+                        </p>
+                        <div class="icon">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-google"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                        <p>
+                            Design by PTB Coder
+                        </p>
+                    </div>
+                </div>
+                <div class="col-6 col-lg-2">
+                    <div class="item">
+                        <div class="tieude text-capitalize font-weight-bold">
+                            information
+                        </div>
+                        <div class="progress gachngang">
+                            <div class="progress-bar bg-success" role="progressbar" style="width: 35%"
+                                aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="height: 2px;"></div>
+                        </div>
+                        <ul>
+                            <li><a href="#">Lorem ipsum sit amet.</a></li>
+                            <li><a href="#">Lorem ipsum sit amet.</a></li>
+                            <li><a href="#">Lorem ipsum sit amet.</a></li>
+                            <li><a href="#">Lorem ipsum sit amet.</a></li>
+                            <li><a href="#">Lorem ipsum sit amet.</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-6 col-lg-2">
+                    <div class="item">
+                        <div class="tieude text-capitalize font-weight-bold">
+                            information
+                        </div>
+                        <div class="progress gachngang">
+                            <div class="progress-bar bg-success" role="progressbar" style="width: 35%"
+                                aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="height: 2px;"></div>
+                        </div>
+                        <ul>
+                            <li><a href="#">Lorem ipsum sit amet.</a></li>
+                            <li><a href="#">Lorem ipsum sit amet.</a></li>
+                            <li><a href="#">Lorem ipsum sit amet.</a></li>
+                            <li><a href="#">Lorem ipsum sit amet.</a></li>
+                            <li><a href="#">Lorem ipsum sit amet.</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="item">
+                        <div class="tieude text-capitalize font-weight-bold">
+                            information
+                        </div>
+                        <div class="progress gachngang">
+                            <div class="progress-bar bg-success" role="progressbar" style="width: 35%"
+                                aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="height: 2px;"></div>
+                        </div>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique deleniti reprehenderit
+                            iusto officiis in recusandae.
+                        </p>
+                        <div class="timkiem">
+                            <input type="text" name="" id="" placeholder="Enter your email here...">
+                            <button type="button" class="btn-dark">Sign up</button>
+                        </div>
+                        <ul>
+                            <li>
+                                <a href="#"><img src="./images/footter1.png" alt=""></a>
+                            </li>
+                            <li>
+                                <a href="#"><img src="./images/footer2.png" alt=""></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4"></div>
+                <div class="col-lg-8">
+                    <div class="item">
+                        <img src="./images/pay2.png" alt="pay">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="myModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">GIỎ HÀNG</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <table class="table table-bordered table-striped" data-toggle="table" id="dulieu">
+                        <thead>
+                            <tr>
+                                <th>Tên sản phẩm</th>
+                                <th>Hình sản phẩm</th>
+                                <th>Giá sản phẩm</th>
+                            </tr>
+                        </thead>
+                    </table>
+                    Tổng tiền: <span id="tongtiensp" class="text-danger"></span> VNĐ
+                    <br>
+                    <p>Tiến hành đặt hàng bằng cách <a href="./profile.html"><u>đăng nhập tài khoản.</u></a></p>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-warning" onclick="CLEARCART();">Clear
+                        Cart</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="muiten fixed-bottom">
+        <a href="#phandau" style="transition: all .9s ease;"><i
+                class="far fa-arrow-square-up fa-3x d-flex justify-content-end"></i></a>
+    </div>
+    <!-- <script src="./js/main.js"></script> -->
+    <script src="./js/quanly.js"></script>
+    <script src="./js/showtime.js"></script>
+</body>
+
+</html>

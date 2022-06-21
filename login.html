@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="loginstyle.css">
+</head>
+<body>
+    <h2>Modal Login Form</h2>
+
+<button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
+
+<div id="id01" class="modal">
+  
+  <form class="modal-content animate" action="/index.html" method="post">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+      <img src="./shop/images/img_avatar.png" alt="Avatar" class="avatar">
+    </div>
+
+    <div class="container">
+      <label for="uname"><b>Your Email</b></label>
+      <input type="text" placeholder="Enter Your Email" name="uname" id="user" required>
+
+      <label for="psw"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="psw" id="password" required>
+        
+      <button type="submit" id="login">Login</button>
+      <div id="error"></div>
+      <label>
+        <input type="checkbox" checked="checked" name="remember"> Remember me
+      </label>
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+      
+    </div>
+  </form>
+</div>
+<script>
+    // Get the modal
+    var modal = document.getElementById('id01');
+    
+    // Khi người dùng nhấp vào bất kỳ đâu bên ngoài phương thức, hãy đóng nó
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+
+    var usersApi = 'http://localhost:3000/users';
+    
+    var loginBtn = document.getElementById('login')
+
+    fetch(usersApi)
+        .then(response => response.json())
+        .then(function(users){
+            loginBtn.onclick = function (e) {
+                var userValue = document.querySelector('#user').value
+                var passValue = document.querySelector('#password').value
+                var errorElement = document.querySelector('#error');
+                console.log(userValue);
+                e.preventDefault();
+                console.log(users);
+               
+                for (const user of users){
+                    console.log(user.email);
+                    var dataEmail = user.email;
+                    var dataPassword = user.password;
+                    var dataId = user.id;
+                    var data = new Object();
+
+                    data.email = dataEmail;
+                    data.password = dataPassword;
+                    data.id = dataId;
+                    localStorage.setItem("Id", data.id);
+                    console.log(data);
+
+                    if (userValue === data.email && passValue === data.password) {
+                        
+                        errorElement.innerHTML = `Đăng nhập thành công, bấm vào <a href="./shop/shop.html">đây để chuyển trang</a>`;
+                        
+                    }
+                    else {
+                        errorElement.innerText = 'Tài khoản hoặc mật khẩu đăng nhập sai...'
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+</html>

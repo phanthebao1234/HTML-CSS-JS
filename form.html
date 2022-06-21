@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./formstyle.css" />
+    <link rel="stylesheet" href="loginstyle.css">
+  </head>
+  <body>
+    <div class="main">
+      <form action="" method="POST" class="form" id="form-1">
+        <h3 class="heading">Đăng kí tài khoản</h3>
+        <p class="desc">Nếu bạn đã có tài khoản, thì có thể bấm vào <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button> để đăng nhập</p>
+
+        <div class="spacer"></div>
+
+        <div class="form-group">
+          <label for="fullname" class="form-label">Tên đầy đủ</label>
+          <input
+            id="fullname"
+            name="fullname"
+            type="text"
+            placeholder="VD: Thế Bảo"
+            class="form-control"
+          />
+          <span class="form-message"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="email" class="form-label">Email</label>
+          <input
+            id="email"
+            name="email"
+            type="text"
+            placeholder="VD: email@domain.com"
+            class="form-control"
+          />
+          <span class="form-message"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="password" class="form-label">Mật khẩu</label>
+          <input
+            id="password"
+            name="password"
+            type="password"
+            placeholder="Nhập mật khẩu"
+            class="form-control"
+          />
+          <span class="form-message"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="password_confirmation" class="form-label"
+            >Nhập lại mật khẩu</label
+          >
+          <input
+            id="password_confirmation"
+            name="password_confirmation"
+            placeholder="Nhập lại mật khẩu"
+            type="password"
+            class="form-control"
+          />
+          <span class="form-message"></span>
+        </div>
+
+        <button class="form-submit" type="submit" id="submit">Đăng ký</button>
+        <h3 id="susses"></h3>
+      </form>
+      <div>
+        
+        <div id="id01" class="modal">
+          
+          <form class="modal-content animate" action="/index.html" method="post">
+            <div class="imgcontainer">
+              <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+              <img src="./shop/images/img_avatar.png" alt="Avatar" class="avatar">
+            </div>
+  
+            <div class="container">
+              <label for="uname"><b>Your Email</b></label>
+              <input type="text" placeholder="Enter Your Email" name="uname" id="userlogin" required>
+  
+              <label for="psw"><b>Password</b></label>
+              <input type="password" placeholder="Enter Password" name="psw" id="passwordlogin" required>
+                
+              <button type="submit" id="login">Login</button>
+              <div id="error" style="color: red;"></div>
+              <label>
+                <input type="checkbox" checked="checked" name="remember"> Remember me
+              </label>
+            </div>
+  
+            <div class="container" style="background-color:#f1f1f1">
+              <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+              
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    
+
+    <script src="./formmain.js"></script>
+    <script>
+      Validator({
+        form: "#form-1",
+        errorSelector: ".form-message",
+        rules: [
+          Validator.isRequired("#fullname", "Nhập đẩy đủ tên của bạn"),
+          Validator.isRequired("#email"),
+          Validator.isEmail("#email", "Nhập dúng định dạng email của bạn"),
+          Validator.minLength("#password", 10),
+          Validator.isRequired("#password_confirmation"),
+          Validator.isConfirm(
+            "#password_confirmation",
+            function () {
+              return document.querySelector("#form-1 #password").value;
+            },
+            "Mật khẩu nhập lại không chính xác"
+          ),
+        ],
+        onSubmit: function (data) {
+          // Có thể Call API
+          
+          var usersApi = 'http://localhost:3000/users'
+          function createUserForm(data, callback) {
+            options = {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+                // 'Content-Type': 'application/x-www-form-urlencoded',
+              },
+              body: JSON.stringify(data),
+            };
+            fetch(usersApi, options)
+              .then((response) => response.json())
+              .then(callback);
+          }
+          createUserForm(data)
+          var sussesElement = document.querySelector('#susses');
+          sussesElement.innerHTML = `Đăng kí thành công, bấm vào <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>đây để đăng nhập</a>`
+        },
+        
+      });
+    </script>
+    <script src="login.js"></script>
+  </body>
+</html>

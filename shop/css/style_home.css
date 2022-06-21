@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap');
+
+.banner {
+    margin-top: 100px;
+}
+
+.banner button {
+    border-radius: 25px;
+    font-weight: bold;
+    padding: 5px 30px;
+}
+.banner button:hover {
+    background: red;
+    color: aliceblue;
+    transition: all .5s ease;
+}
+.banner img {
+    width: 100%;
+}
+
+.intro-text {
+    margin-top: 66px;
+    font-size: 30px;
+}
+
+@media only screen and (max-width: 576px) {
+    .banner .banner-text {
+        margin-bottom: 400px;
+    }
+    .banner .banner-img {
+        height: 90vh;
+        top: 0;
+    }
+    .intro .intro-text{
+        font-size: 20px;
+    }
+    .kinhnghiem .kinhnghiem-text {
+        text-align: center;
+    }
+}

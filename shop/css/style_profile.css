@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+html {
+    font-family: 'Roboto', sans-serif;
+    
+}
+
+.dangki {
+    margin-top: 30px;
+    font-family: 'Roboto', sans-serif;
+}
+.dangki input {
+    width: 300px;
+}
+.lienhe {
+    font-family: 'Roboto', sans-serif;
+    background-image: url('../images/banner-img.png');
+    background-position-y: 150px;
+}
+.lienhe-text1 {
+    margin-top: 55px;
+    line-height: 1.7;
+    padding-bottom: 15px;
+}
+.lienhe-text1 h3 {
+    font-size: 25px;
+    margin-bottom: 20px; 
+}
+@media only screen and (max-width: 576px) {
+    .lienhe {
+        margin-top: 50px;
+    }
+}
